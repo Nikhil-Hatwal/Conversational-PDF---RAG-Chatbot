@@ -34,7 +34,7 @@ if not HUGGINGFACE_TOKEN:
     st.error("HUGGINGFACE_TOKEN not found. Please check your .env file.")
     st.stop()
 os.environ["USE_TF"] = "0" 
-embeddings=HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+embeddings=HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 
 def init_metadata_db():
@@ -70,7 +70,7 @@ st.write("Upload PDF and chat with their content")
 api_key=os.environ.get("GROQ_API_KEY")
 
 if api_key:
-    llm=ChatGroq(api_key=api_key,model="Gemma2-9b-It")
+    llm=ChatGroq(api_key=api_key,model="openai/gpt-oss-20b")
     
     session_id=st.text_input("Session ID",value="21231321")
     

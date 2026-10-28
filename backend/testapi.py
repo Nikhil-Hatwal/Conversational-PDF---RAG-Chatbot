@@ -84,8 +84,8 @@ async def upload_pdfs(files: list[UploadFile] = File(...)):
 async def ask_query(q: Query):
 
     session_store: dict[str, BaseChatMessageHistory] = {}
-    llm = ChatGroq(api_key="GROQ_API_KEY", model="Gemma2-9b-It")
-    embeddings=HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    llm = ChatGroq(api_key="GROQ_API_KEY", model="openai/gpt-oss-20b")
+    embeddings=HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
    
     vectorStore=FAISS.from_documents(documents,embedding=embeddings)
     retriever=vectorStore.as_retriever()
