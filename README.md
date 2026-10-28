@@ -7,7 +7,6 @@ Built with:
 - 🤖 HuggingFace Embeddings
 - 🔍 FAISS Vector Store
 - 🗂️ Streamlit (frontend)
-- ⚙️ FastAPI (backend API)
 - 🐳 Docker + Docker Compose
 
 ---
@@ -30,7 +29,7 @@ Built with:
 .
 ├── app.py                  # Streamlit chatbot UI
 ├── backend/
-│   ├── main.py             # FastAPI entrypoint
+│   ├── main.py             
 ├── Dockerfile              # Dockerfile for Streamlit
 ├── backend/Dockerfile      # Dockerfile for FastAPI
 ├── docker-compose.yml      # Compose setup for both services
