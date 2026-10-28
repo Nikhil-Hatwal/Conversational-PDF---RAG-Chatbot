@@ -42,6 +42,8 @@ Built with:
 
 ## 💬 Streamlit Chat UI
 
+Accessible at : https://ragbasedpdfchatbot.streamlit.app
+
 * Upload PDFs
 * Ask questions
 * Session-aware chat
