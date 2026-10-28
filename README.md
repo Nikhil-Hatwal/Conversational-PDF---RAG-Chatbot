@@ -41,92 +41,12 @@ Built with:
 
 ````
 
----
-
-## ⚙️ Setup
-
-### 🐳 1. Docker (Recommended)
-
-```bash
-# Clone project
-git clone https://github.com/your-username/PanScience-Assignment.git
-cd PanScience-Assignment
-
-# Copy and edit .env
-cp .env.example .env
-
-# Build & run
-docker compose up --build
-````
-
-### 🔌 2. Local (Manual)
-
-```bash
-pip install -r requirements.txt
-python app.py  # for Streamlit UI
-uvicorn backend.main:app --reload  # in another terminal for FastAPI
-```
-
----
-
-## 📄 Environment Variables
-
-Create a `.env` file:
-
-```
-HUGGINGFACE_TOKEN=your_huggingface_token
-GROQ_API_KEY=your_groq_api_key
-```
-
----
-
 ## 💬 Streamlit Chat UI
-
-Accessible at:
-👉 [http://localhost:8501](http://localhost:8501)
 
 * Upload PDFs
 * Ask questions
 * Session-aware chat
 * PDF-only context enforcement
-
----
-
-## 🌐 FastAPI Endpoints
-
-Accessible at:
-👉 [http://localhost:8000/docs](http://localhost:8000/docs)
-
-| Endpoint     | Method | Description                     |
-| ------------ | ------ | ------------------------------- |
-| `/upload/`   | POST   | Upload one or more PDF files    |
-| `/query/`    | POST   | Ask a question about documents  |
-| `/metadata/` | GET    | View document metadata (SQLite) |
-
-Example query:
-
-POST /query/
-```
-{
-  "question": "What is the summary of document 1?"
-}
-```
-## 🧱 Deployment
-
-### 📍 Render / Railway / VM
-
-* Push this repo to GitHub or SCP to a VM
-* Set `.env` environment variables
-* Run:
-
-```bash
-docker compose up --build -d
-```
-
-Then access:
-
-* Streamlit: [http://your-ip:8501](http://your-ip:8501)
-* FastAPI: [http://your-ip:8000/docs](http://your-ip:8000/docs)
 
 ---
 
@@ -142,24 +62,3 @@ Then access:
 | Streamlit   | Chat UI frontend         |
 | SQLite      | Document metadata        |
 | Docker      | Containerization         |
-
----
-
-## ✅ Deliverables (Checklist)
-
-* [x] RAG pipeline with document upload
-* [x] Conversational chatbot interface
-* [x] REST API with `/upload`, `/query`, `/metadata`
-* [x] Document metadata in SQLite
-* [x] Docker Compose setup
-* [x] `.env.example` + README
-* [x] Public deployment (optional)
-
----
-
-## 📬 Contact & Submission
-
-* Clone or download this repo
-* Or access deployed version 
-* Contact for deployment help or further demo
-
