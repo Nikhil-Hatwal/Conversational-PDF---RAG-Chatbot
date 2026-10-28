@@ -12,7 +12,7 @@ from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import TextLoader, PyPDFLoader
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from dotenv import load_dotenv
@@ -83,7 +83,7 @@ async def upload_pdfs(files: list[UploadFile] = File(...)):
 async def ask_query(q: Query):
 
     session_store: dict[str, BaseChatMessageHistory] = {}
-    llm = ChatGroq(api_key="abc_RPDknZ9YWIUGiYPs9ZLGWGdyb3FYLBQ8xcGEwrLLETTSbIgx3tk9", model="Gemma2-9b-It")
+    llm = ChatGroq(api_key="GROQ_API_KEY", model="Gemma2-9b-It")
     embeddings=HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
    
     vectorStore=FAISS.from_documents(documents,embedding=embeddings)

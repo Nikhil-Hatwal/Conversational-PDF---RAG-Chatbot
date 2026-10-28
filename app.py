@@ -1,7 +1,7 @@
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser   
-from langchain.chains import create_history_aware_retriever,create_retrieval_chain
+from langchain_classic.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain_community.vectorstores import FAISS
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
@@ -9,9 +9,9 @@ from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import TextLoader, PyPDFLoader
 from langchain_core.runnables.history import RunnableWithMessageHistory
-from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from dotenv import load_dotenv
 import os
 import streamlit as st
@@ -23,7 +23,16 @@ from datetime import datetime, timedelta
 
 load_dotenv()
 
-os.environ["HUGGINGFACE_TOKEN"]=os.getenv("HUGGINGFACE_TOKEN")
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
+
+if not HUGGINGFACE_TOKEN:
+    st.error("HUGGINGFACE_TOKEN not found. Please check your .env file.")
+    st.stop()
 os.environ["USE_TF"] = "0" 
 embeddings=HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
