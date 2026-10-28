@@ -7,7 +7,7 @@ Built with:
 - 🤖 HuggingFace Embeddings
 - 🔍 FAISS Vector Store
 - 🗂️ Streamlit (frontend)
-- 🐳 Docker + Docker Compose
+  
 
 ---
 
